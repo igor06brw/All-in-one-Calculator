@@ -1,0 +1,80 @@
+.bg-gradient {
+    background: rgb(0,21,102);
+    background: #100a1c;
+    background-image: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
+    margin: 0;
+}
+
+.display-result {
+    text-align: center;
+}
+.display-result__input {
+    text-align: center;
+    height: 80px;
+    width: 500px;
+    font-size: 48px;
+}
+
+.header {
+    z-index: 2;
+}
+
+.main {
+    z-index: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+.mortgage-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.vh-80 {
+    height: 80vw;
+} 
+
+.transition-3s {
+    animation-delay: 0.3s;
+}
+.transition-2s {
+    animation-delay: 0.2s;
+}
+.transition-1s {
+    animation-delay: 0.1s;
+}
+
+.loader-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

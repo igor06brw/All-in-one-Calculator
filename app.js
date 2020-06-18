@@ -14,9 +14,7 @@ let termRange = document.getElementById('termRange');
 let interestRateValue = document.getElementById('interestRateValue');
 let interestRateRange = document.getElementById('interestRateRange');
 let displayResult = document.getElementById('displayResult');
-let fixedOption = document.getElementById('forFixedMortgage');
-
-
+let checkRadio = document.getElementById('checkRadio');
 
 
 
@@ -78,8 +76,14 @@ interestRateRange.addEventListener('click',(value) => {
 });
 
 
-let calculateFixedMortage = () => {
+let calculateMortage = () => {
 
+    checkRadio.addEventListener('click', () => {
+        if(checkRadio.value) {
+
+        }
+    })
+    
     if(valueFromDebt > 0 && valueFromInterestRate > 0 && valueFromTerm > 0) {
         let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
         let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
@@ -153,4 +157,4 @@ if(displayResult.value == NaN) {
     displayResult.value = 000
 }
 
-displayResult.addEventListener('change', calculateFixedMortage());
+displayResult.addEventListener('change', calculateMortage());

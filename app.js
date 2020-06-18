@@ -78,20 +78,10 @@ let calculateMortage = () => {
         } else {
             let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
             let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
-        
-            console.log(R);
             let Rk = parseFloat(valueFromDebt / (valueFromTerm * 12));
+            let Ro = ((valueFromDebt-120*Rk) * (valueFromInterestRate / 100)) / 12;
             
-            console.log(Rk);
-
-            let Ro = ((valueFromDebt-0*Rk) * (valueFromInterestRate / 100)) / 12;
-
-            console.log(Rk+Ro);
-
-             // Rata odsetkowa (Ro):
-             // Ro=[(A-x*Rk)*b]/12
-    
-            displayResult.value = `${Rk+Ro} zł`;
+            displayResult.value = `${Rk + Ro} zł`;
         } 
     }
 }

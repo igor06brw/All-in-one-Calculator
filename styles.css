@@ -23,6 +23,10 @@
   z-index: 2;
 }
 
+.non-display-form {
+  display: none;
+}
+
 .main {
   z-index: 1;
 }

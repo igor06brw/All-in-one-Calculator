@@ -7,6 +7,8 @@ let debtValue = document.getElementById('debtValue'),
     displayResult = document.getElementById('displayResult'),
     checkRadio = document.getElementById('checkRadio'),
     decreasingCheck = document.getElementById('forDescreasingMortgage'),
+    displayMinValue = document.getElementById('displayMinResult'),
+    displayMaxValue = document.getElementById('displayMaxResult'),
     valueFromDebt,
     valueFromTerm,
     valueFromInterestRate;
@@ -65,27 +67,43 @@ interestRateRange.addEventListener('click',(value) => {
 });
 
 
-
+let displayInputs = () => {
+    
+    console.log(displayMinValue.parentElement);
+    if(decreasingCheck.checked == false) { 
+        displayMinValue.parentElement.classList.add("non-display-form");
+        displayMaxValue.parentElement.classList.add("non-display-form");
+        displayResult.parentElement.classList.remove("non-display-form")
+    } else {
+        displayResult.parentElement.classList.add("non-display-form")
+        displayMinValue.parentElement.classList.remove("non-display-form");
+        displayMaxValue.parentElement.classList.remove("non-display-form");
+    }
+}
 
 
 let calculateMortage = () => {
     if(valueFromDebt > 0 && valueFromInterestRate > 0 && valueFromTerm > 0) {
-        console.log(decreasingCheck.checked)
+
         if(decreasingCheck.checked == false) {
+            displayInputs();
             let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
             let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
             displayResult.value = `${R} zł`;
         } else {
+            displayInputs();
             let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
             let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
-            let Rk = parseFloat(valueFromDebt / (valueFromTerm * 12));
-            let Ro = ((valueFromDebt-120*Rk) * (valueFromInterestRate / 100)) / 12;
-            
-            displayResult.value = `${Rk + Ro} zł`;
+            let Rk = (valueFromDebt / (valueFromTerm * 12));
+            let RoMax = ((valueFromDebt-0*Rk) * (valueFromInterestRate / 100)) / 12;
+            let RoMin = ((valueFromDebt-(valueFromTerm*12)*Rk) * (valueFromInterestRate / 100)) / 12;
+
+            displayMinValue.value = `${(Rk + RoMin).toFixed(2)} zł`;
+            displayMaxValue.value = `${Rk + RoMax} zł`;
         } 
     }
 }
-displayResult.addEventListener('change', calculateMortage());
+displayResult.addEventListener('click', calculateMortage());
 
 
    

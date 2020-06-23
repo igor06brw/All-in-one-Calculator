@@ -5,7 +5,7 @@ let debtValue = document.getElementById('debtValue'),
     interestRateValue = document.getElementById('interestRateValue'),
     interestRateRange = document.getElementById('interestRateRange'),
     displayResult = document.getElementById('displayResult'),
-    checkRadio = document.getElementById('checkRadio'),
+    radioTypeOfCalculate = document.getElementById('radioTypeOfCalculate'),
     decreasingCheck = document.getElementById('forDescreasingMortgage'),
     displayMinValue = document.getElementById('displayMinResult'),
     displayMaxValue = document.getElementById('displayMaxResult'),
@@ -66,6 +66,12 @@ interestRateRange.addEventListener('click',(value) => {
     displayResult.addEventListener('change', calculateMortage());
 });
 
+radioTypeOfCalculate.addEventListener('change', () => {
+    calculateMortage();
+});
+
+
+
 
 let displayInputs = () => {
     
@@ -91,7 +97,7 @@ let calculateMortage = () => {
             let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
             displayResult.value = `${R} zł`;
         } else {
-            displayInputs();
+        displayInputs();
             let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
             let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
             let Rk = (valueFromDebt / (valueFromTerm * 12));

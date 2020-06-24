@@ -6,6 +6,7 @@ let debtValue = document.getElementById('debtValue'),
     interestRateRange = document.getElementById('interestRateRange'),
     displayResult = document.getElementById('displayResult'),
     radioTypeOfCalculate = document.getElementById('radioTypeOfCalculate'),
+    radioTypeOfTerm = document.getElementById('typeOfTerm'),
     decreasingCheck = document.getElementById('forDescreasingMortgage'),
     displayMinValue = document.getElementById('displayMinResult'),
     displayMaxValue = document.getElementById('displayMaxResult'),
@@ -16,6 +17,8 @@ let debtValue = document.getElementById('debtValue'),
     sumOfInterest;
     // valueFromRadio;
 
+
+console.log(document)
 
 let debtFunc = (param) => {
     debtValue.value = param.target.value;
@@ -71,6 +74,19 @@ interestRateRange.addEventListener('click',(value) => {
 radioTypeOfCalculate.addEventListener('change', () => {
     calculateMortage();
 });
+
+radioTypeOfTerm.addEventListener('change', () => {
+    const isYears = radioTypeOfTerm.children[0].children[0].checked
+    if(isYears == true) {
+        termRange.step = 5;
+        termRange.max = 30;
+        termRange.value = 15;
+    } else {
+        termRange.step = 6;
+        termRange.max = 300;
+        termRange.value = 120;
+    }
+})
 
 
 

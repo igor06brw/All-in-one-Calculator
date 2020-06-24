@@ -11,7 +11,9 @@ let debtValue = document.getElementById('debtValue'),
     displayMaxValue = document.getElementById('displayMaxResult'),
     valueFromDebt,
     valueFromTerm,
-    valueFromInterestRate;
+    valueFromInterestRate,
+    sumOfResultFixed,
+    sumOfResultDescreasing;
     // valueFromRadio;
 
 
@@ -93,19 +95,31 @@ let calculateMortage = () => {
 
         if(decreasingCheck.checked == false) {
             displayInputs();
-            let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
-            let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
-            displayResult.value = `${R} zł`;
+            const termByMonths = (valueFromTerm*12);
+            let sumOfResults = 0;
+            const q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
+            const R = (valueFromDebt*(Math.pow(q, termByMonths))*(q-1)/((Math.pow(q, termByMonths))-1));
+            
+    
+            
+            for(let i = 0; i < termByMonths; i++) {
+                sumOfResults += Number(R);
+                sumOfResultFixed = sumOfResults;
+            }
+
+            displayResult.value = `${R.toFixed(2)} zł`;
+            console.log(sumOfResultFixed.toFixed(2));
+
         } else {
         displayInputs();
             let q = Number(1+(valueFromInterestRate / 100).toFixed(4) / 12);
-            let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1)).toFixed(2);
+            let R = (valueFromDebt*(Math.pow(q, (valueFromTerm*12)))*(q-1)/((Math.pow(q, (valueFromTerm*12)))-1));
             let Rk = (valueFromDebt / (valueFromTerm * 12));
             let RoMax = ((valueFromDebt-0*Rk) * (valueFromInterestRate / 100)) / 12;
             let RoMin = ((valueFromDebt-(valueFromTerm*12)*Rk) * (valueFromInterestRate / 100)) / 12;
 
             displayMinValue.value = `${(Rk + RoMin).toFixed(2)} zł`;
-            displayMaxValue.value = `${Rk + RoMax} zł`;
+            displayMaxValue.value = `${(Rk + RoMax).toFixed(2)} zł`;
         } 
     }
 }

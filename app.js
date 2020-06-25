@@ -24,21 +24,28 @@ let debtFunc = (param) => {
     debtValue.value = param.target.value;
     debtRange.value = param.target.value;
     if(debtValue.value == debtRange.value) {
-        valueFromDebt = parseFloat(param.target.value).toFixed(2);
+        return valueFromDebt = parseFloat(param.target.value).toFixed(2);
     }
 }
 let termFunc = (param) => {
+    const isYears = radioTypeOfTerm.children[0].children[0].checked
+    
     termValue.value = param.target.value;
     termRange.value = param.target.value;
+    
     if(termValue.value == termRange.value) {
         valueFromTerm = parseFloat(param.target.value).toFixed(2);
+        if(isYears == false) {
+            return valueFromTerm = valueFromTerm / 12;
+        }
+
     }
 }
 let interestRateFunc = (param) => {
     interestRateValue.value = param.target.value;
     interestRateRange.value = param.target.value;
     if(interestRateValue.value == interestRateRange.value) {
-        valueFromInterestRate = parseFloat(param.target.value).toFixed(2);
+        return valueFromInterestRate = parseFloat(param.target.value).toFixed(2);
     }
 }
 

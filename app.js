@@ -24,7 +24,7 @@ let debtFunc = (param) => {
     debtValue.value = param.target.value;
     debtRange.value = param.target.value;
     if(debtValue.value == debtRange.value) {
-        return valueFromDebt = parseFloat(param.target.value).toFixed(2);
+        valueFromDebt = parseFloat(param.target.value).toFixed(2);
     }
 }
 let termFunc = (param) => {
@@ -53,7 +53,7 @@ termValue.addEventListener('change', (value) => {
     termFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });
-termRange.addEventListener('click',(value) => {
+termRange.addEventListener('change',(value) => {
     termFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });
@@ -63,7 +63,7 @@ debtValue.addEventListener('change', (value) => {
     debtFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });
-debtRange.addEventListener('click',(value) => {
+debtRange.addEventListener('change',(value) => {
     debtFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });
@@ -73,7 +73,7 @@ interestRateValue.addEventListener('change', (value) => {
     interestRateFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });
-interestRateRange.addEventListener('click',(value) => {
+interestRateRange.addEventListener('change',(value) => {
     interestRateFunc(value);
     displayResult.addEventListener('change', calculateMortage());
 });

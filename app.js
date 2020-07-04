@@ -99,15 +99,13 @@ radioTypeOfTerm.addEventListener('change', () => {
 
 
 let displayInputs = () => {
-    
-    console.log(displayMinValue.parentElement.parentElement);
     if(decreasingCheck.checked == false) { 
-        displayMinValue.parentElement.parentElement.classList.add("non-display-form");
-        displayMaxValue.parentElement.parentElement.classList.add("non-display-form");
+        displayMinValue.parentElement.classList.add("non-display-form");
+        displayMaxValue.parentElement.classList.add("non-display-form");
         displayResult.parentElement.classList.remove("non-display-form")
     } else {
-        displayResult.parentElement.parentElement.classList.add("non-display-form")
-        displayMinValue.parentElement.parentElement.classList.remove("non-display-form");
+        displayResult.parentElement.classList.add("non-display-form")
+        displayMinValue.parentElement.classList.remove("non-display-form");
         displayMaxValue.parentElement.classList.remove("non-display-form");
     }
 }

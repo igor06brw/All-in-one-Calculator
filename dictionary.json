@@ -1,0 +1,42 @@
+{
+    "dictionary" : {
+            "polish" : {
+                    "header" : {
+                        "title" : "Kalkulator Hipoteki",
+                        "description" : "Pożycz fundusze do zakupu swojego wymarzonego domu!"
+                    },
+                    "debt": {
+                        "label" : "Kwota kredytu",
+                        "placeholder" : "Wpisz lub przesuń suwakiem kwote kredytu..."
+                    },
+                    "term": {
+                        "label" : "Termin płatności",
+                        "placeholder" : "Wpisz lub przesuń suwakiem termin opłatności..."
+                    },
+                    "interestRate" : {
+                        "label" : "Oprocentowanie kwoty kredytu",
+                        "placeholder" : "Wpisz bądź przesuń suwakiem liczbę oprocentowania kredytu..."
+                    },
+                    "radioTerm" : {
+                        "years" : "Lata",
+                        "months" : "Miesiące"
+                    },
+                    "radioMortgage" : {
+                        "fixed" : "Rata stała",
+                        "decreasing" : "Rata malejąca"
+                    },
+                    "displayResults" : {
+                        "first" : "Pierwsza rata",
+                        "last" : "Ostatnia rata",
+                        "fixed" : "Stała rata"
+                    }
+
+                },
+            "english" : {
+                    "header": {
+                        "title" : "Mortgage Calculator",
+                        "description" : "Lean funds for purchase own home!"
+                    }
+                }
+        }
+}

@@ -106,9 +106,9 @@ let displayInputs = () => {
         displayMaxValue.parentElement.parentElement.classList.add("non-display-form");
         displayResult.parentElement.classList.remove("non-display-form")
     } else {
-        displayResult.parentElement.classList.add("non-display-form")
+        displayResult.parentElement.parentElement.classList.add("non-display-form")
         displayMinValue.parentElement.parentElement.classList.remove("non-display-form");
-        displayMaxValue.parentElement.parentElement.classList.remove("non-display-form");
+        displayMaxValue.parentElement.classList.remove("non-display-form");
     }
 }
 

@@ -23,7 +23,7 @@ request.send();
 request.onload = function() {
     const words = request.response;
 
-    translate(words);
+    // translate(words);
 }
 
 function translate(words) {

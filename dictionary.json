@@ -30,12 +30,36 @@
                         "last" : "Ostatnia rata",
                         "fixed" : "Stała rata"
                     }
-
                 },
             "english" : {
                     "header": {
                         "title" : "Mortgage Calculator",
                         "description" : "Lean funds for purchase own home!"
+                    },
+                    "debt": {
+                        "label" : "Mortgage Amount",
+                        "placeholder" : "Press or slide mortgage amount..."
+                    },
+                    "term": {
+                        "label" : "Mortgage Term",
+                        "placeholder" : "Press or slide mortgage term..."
+                    },
+                    "interestRate" : {
+                        "label" : "Interest Rate",
+                        "placeholder" : "Press or slide interest rate..."
+                    },
+                    "radioTerm" : {
+                        "years" : "Years",
+                        "months" : "Months"
+                    },
+                    "radioMortgage" : {
+                        "fixed" : "Fixed Payment",
+                        "decreasing" : "Decreasing Payment"
+                    },
+                    "displayResults" : {
+                        "first" : "First payment",
+                        "last" : "Last payment",
+                        "fixed" : "Fixed payment"
                     }
                 }
         }

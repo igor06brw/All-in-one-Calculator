@@ -16,11 +16,10 @@ const headerTitle = document.getElementById('headerTitle'),
       translateAppButton = document.getElementById('translateAppButton')
 
 let isEnglish = true;
-      console.log(isEnglish);
+
+
 
 translateAppButton.addEventListener('click', () => {
-
-    console.log(isEnglish);
     let words;
     let requestURL = "./dictionary.json"
     let request = new XMLHttpRequest();
@@ -36,7 +35,7 @@ translateAppButton.addEventListener('click', () => {
 function translate(words) {
     const polishTranslateBase = words.dictionary.polish,
           englishTranslateBase = words.dictionary.english
-          console.log(isEnglish);
+
     if(isEnglish == true) {
         isEnglish = false;
         headerTitle.textContent = polishTranslateBase.header.title;

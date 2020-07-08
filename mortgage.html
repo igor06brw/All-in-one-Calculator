@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient vh-100">
+<body class="body bg-gradient vh-100">
     <header class="header pb-5 pt-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
@@ -18,15 +18,14 @@
                 </div>
             </div>
         </div>
-        <nav class="nav navbar navbar-light white lighten-4">
+        <nav class="navbar nav">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bars fa-1x"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#" id="translateAppButton">Translate</a>
                   <a class="dropdown-item" href="#" id="changeCurrencyAppButton">Change currency</a>
-                  <a class="dropdown-item" href="#" id="colorModeAppButton">White Mode</a>
+                  <a class="dropdown-item" href="#" id="themeAppButton">White Mode</a>
                 </div>
               </div>
         </nav>
@@ -113,15 +112,15 @@
             <div class="col">
                 <div class="col-xs-3 display-result">
                     <label class="form-check-label text-light" for="displayMaxResult" id="displayMinResultLabel">First payment</label>
-                    <input type="text" class="bg-light rounded-pill border-0 mx-auto display-result__input" value="-" id="displayMaxResult" disabled />\
+                    <input type="text" class="bg-light rounded-pill border-0 mx-auto display-result__input form-control" value="-" id="displayMaxResult" disabled />
                 </div>
                 <div class="col-xs-3 pt-3 display-result">
                     <label class="form-check-label text-light" for="displayMinResult" id="displayMaxResultLabel">Last payment</label>
-                    <input type="text" class="bg-light rounded-pill border-0 mx-auto display-result__input" value="-" id="displayMinResult" disabled />
+                    <input type="text" class="form-control bg-light rounded-pill border-0 mx-auto display-result__input" value="-" id="displayMinResult" disabled />
                 </div>
                 <div class="col-xs-1 mx-auto display-result non-display-form">
                     <label class="form-check-label text-light" for="displayMaxResult" id="displayFixedResultLabel">Fixed payment</label>
-                    <input type="text" class="bg-light rounded-pill border-0 mx-auto display-result__input" value="-" id="displayResult" disabled />
+                    <input type="text" class="form-control bg-light rounded-pill border-0 mx-auto display-result__input" value="-" id="displayResult" disabled />
                 </div>
         </div>
     </main>
@@ -146,6 +145,7 @@
     <script type="text/javascript" src="./dictionary.json"></script>
     <script src="preload.js"></script>
     <script src="translator.js"></script>
+    <script src="theme.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

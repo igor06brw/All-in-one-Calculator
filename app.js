@@ -15,10 +15,7 @@ let debtValue = document.getElementById('debtValue'),
     valueFromInterestRate,
     sumOfResult,
     sumOfInterest;
-    // valueFromRadio;
 
-
-console.log(document)
 
 let debtFunc = (param) => {
     debtValue.value = param.target.value;

@@ -4,16 +4,6 @@ const theme = document.getElementById('themeAppButton'),
       body = document.getElementsByTagName('body'),
       inputGroupText = document.getElementsByClassName('input-group-text');
 
-
-function changeTheme() {
-    textDark = document.getElementsByClassName('text-dark');
-    [...textDark].forEach(el => {
-        el.classList.remove('text-dark');
-        el.classList.add('text-light');
-    })
-}
-
-
 theme.addEventListener('click', () => { 
     if(textLight.length > 10) {
         [...textLight].forEach(el => {

@@ -36,27 +36,41 @@
                 <div class="row">
                     <div class="col-sm-8 mx-auto">
                         <div class="form-group col-auto">
-                            <label class="text-center text-light" for="debtValue" id="mortgageDebtLabel">Leasing Amount</label>
+                            <label class="text-center text-light" for="leasingNetPrice" id="leasingNetPriceLabel">Net Price</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text form-control">
                                         <i class="fas fa-money-bill-wave"></i>
                                     </div>
                                 </div>
-                                <input type="number" class="form-control bg-white" placeholder="Leasing amount" id="debtValue" aria-label="Leasing Amount">
-                                <input type="range" class="form-control-range" id="debtRange" step="2500" min="100000" max="1000000" value="300000">
+                                <input type="number" class="form-control bg-white" placeholder="Press or slide leasing net price..." id="leasingNetPrice" aria-label="Leasing Amount">
+                                <input type="range" class="form-control-range" id="leasingNetPrice" step="2500" min="30000" max="300000" value="100000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 mx-auto">
+                        <div class="form-group col-auto">
+                            <label class="text-center text-light" for="leasingFirstPayment" id="leasingFirstPaymentLabel">First payment</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text form-control">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                </div>
+                                <input type="number" class="form-control bg-white" placeholder="Press or slide leasing net price..." id="leasingFirstPayment" aria-label="First Payment">
+                                <input type="range" class="form-control-range" id="leasingFirstPayment" step="2500" min="30000" max="300000" value="100000">
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-8 mx-auto">
                         <div class="row mx-auto">
                             <div class="form-group col-sm-10">
-                                <label class="text-center text-light" for="termValue" id="mortgageTermLabel">Mortgage Term</label>
+                                <label class="text-center text-light" for="termValue" id="mortgageTermLabel">Leasing Term</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text form-control"><i class="far fa-calendar-plus"></i></div>
                                     </div>
-                                    <input type="number" class="form-control bg-white" placeholder="Years of replayment debt" id="termValue" aria-label="Mortgage Term">
+                                    <input type="number" class="form-control bg-white" placeholder="Press or slide mortgage term..." id="termValue" aria-label="Mortgage Term">
                                     <input type="range" class="form-control-range" id="termRange" step="5" min="0" max="30" value="15">
                                 </div>
                             </div>
@@ -78,12 +92,26 @@
                     </div>
                     <div class="col-sm-8 mx-auto">
                         <div class="form-group col-auto">
-                            <label class="text-center text-light" for="termValue" id="mortgageInterestRateLabel">Interest Rate</label>
+                            <label class="text-center text-light" for="leasingRedeemPrice" id="RedeemPriceLabel">Redeem Price</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text form-control">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                </div>
+                                <input type="number" class="form-control bg-white" placeholder="Press or slide leasing redeem price..." id="RedeemPrice" aria-label="Redeem Price">
+                                <input type="range" class="form-control-range" id="leasingRedeemPrice" step="2500" min="30000" max="300000" value="100000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 mx-auto">
+                        <div class="form-group col-auto">
+                            <label class="text-center text-light" for="leasingInterestRateValue" id="leasingInterestRateLabel">Interest Rate</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text form-control"><i class="fas fa-percent "></i></div>
                                 </div>
-                                <input type="number" class="form-control bg-white" placeholder="Interest rate of debt" id="interestRateValue" aria-label="Interest">
+                                <input type="number" class="form-control bg-white" placeholder="Press or slide leasing interest rate..." id="leasingInterestRateValue" aria-label="Interest">
                                 <input type="range" class="form-control-range" id="interestRateRange" step="0.1" min="0" max="10" value="4.7">
                             </div>
                         </div>

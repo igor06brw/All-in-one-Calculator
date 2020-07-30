@@ -90,6 +90,7 @@ radioTypeOfTerm.addEventListener('change', () => {
         termRange.max = 300;
         termRange.value = 120;
     }
+    
 })
 
 

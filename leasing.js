@@ -27,7 +27,9 @@ let headerTitle = document.getElementById('headerTitle'),
     radiosOfTypePayments = document.getElementById('radiosOfTypePayments'),
     forFixedPayment = document.getElementById('forFixedPayment'),
     forDescreasingPayment = document.getElementById('forDescreasingPayment'),
+    displayNextPaymentResult = document.getElementById('displayNextPaymentResult'),
+    displayLastPaymentResult = document.getElementById('displayLastPaymentResult'),
+    displayFixedPaymentResult = document.getElementById('displayFixedPaymentResult'),
 
-    displayNextPaymentResult.getElementById('displayNextPaymentResult'),
-    displayLastPaymentResult.getElementById('displayLastPaymentResult'),
-    displayFixedPaymentResult.getElementById('displayFixedPaymentResult');
+
+    ((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput ))

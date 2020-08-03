@@ -1,7 +1,4 @@
-let headerTitle = document.getElementById('headerTitle'),
-    headerDescription = document.getElementById('headerDescription'),
-
-    dropdownMenuButton = document.getElementById('dropdownMenuButton'),
+let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
     translateAppButton = document.getElementById('translateAppButton'),
     themeAppButton = document.getElementById('themeAppButton'),
     mainMenuButton = document.getElementById('mainMenuButton'),
@@ -29,7 +26,62 @@ let headerTitle = document.getElementById('headerTitle'),
     forDescreasingPayment = document.getElementById('forDescreasingPayment'),
     displayNextPaymentResult = document.getElementById('displayNextPaymentResult'),
     displayLastPaymentResult = document.getElementById('displayLastPaymentResult'),
-    displayFixedPaymentResult = document.getElementById('displayFixedPaymentResult'),
+    displayFixedPaymentResult = document.getElementById('displayFixedPaymentResult');
 
 
-    ((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput ))
+    leasingNetPriceInput.addEventListener('change', () => {
+        
+    })
+    leasingNetPriceRange.addEventListener('change', () => {
+        
+    })
+
+    leasingFirstPaymentInput.addEventListener('change', () => {
+        
+    })
+    leasingFirstPaymentRange.addEventListener('change', () => {
+        
+    })
+
+    leasingTermInput.addEventListener('change', () => {
+        
+    })
+    leasingTermRange.addEventListener('change', () => {
+        
+    })
+
+    typeOfTerm.addEventListener('change', () => {
+        
+    })
+
+    leasingRedeemPriceInput.addEventListener('change', () => {
+        
+    })
+    leasingRedeemPriceRange.addEventListener('change', () => {
+        
+    })
+
+    leasingInterestRateInput.addEventListener('change', () => {
+        
+    })
+    leasingInterestRateRange.addEventListener('change', () => {
+        
+    })
+
+    radiosOfTypePayments.addEventListener('change', () => {
+        
+    })
+
+    displayNextPaymentResult.addEventListener('change', () => {
+    
+    })
+
+    displayLastPaymentResult.addEventListener('change', () => {
+    
+    })
+
+    displayFixedPaymentResult.addEventListener('change', () => {
+    
+    })
+
+console.log(((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput) - 1));

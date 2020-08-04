@@ -26,62 +26,103 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
     forDescreasingPayment = document.getElementById('forDescreasingPayment'),
     displayNextPaymentResult = document.getElementById('displayNextPaymentResult'),
     displayLastPaymentResult = document.getElementById('displayLastPaymentResult'),
-    displayFixedPaymentResult = document.getElementById('displayFixedPaymentResult');
+    displayFixedPaymentResult = document.getElementById('displayFixedPaymentResult'),
+
+    valueFromLeasingNetPrice,
+    valueFromLeasingFirstPayment,
+    valueFromLeasingTerm,
+    valueFromLeasingRedeemPrice,
+    valueFromLeasingInterestRate;
 
 
-    leasingNetPriceInput.addEventListener('change', () => {
-        
-    })
-    leasingNetPriceRange.addEventListener('change', () => {
-        
-    })
+    leasingNetPriceInput.addEventListener('change', (value) => {
+        leasingNetPriceFunction(value);
+    });
+    leasingNetPriceRange.addEventListener('change', (value) => {
+        leasingNetPriceFunction(value);
+    });
 
-    leasingFirstPaymentInput.addEventListener('change', () => {
-        
-    })
-    leasingFirstPaymentRange.addEventListener('change', () => {
-        
-    })
+    leasingFirstPaymentInput.addEventListener('change', (value) => {
+        leasingFirstPaymentFunction(value)
+    });
+    leasingFirstPaymentRange.addEventListener('change', (value) => {
+        leasingFirstPaymentFunction(value)
+    });
 
-    leasingTermInput.addEventListener('change', () => {
-        
-    })
-    leasingTermRange.addEventListener('change', () => {
-        
-    })
+    leasingTermInput.addEventListener('change', (value) => {
+        leasingTermFunction(value);
+    });
+    leasingTermRange.addEventListener('change', (value) => {
+        leasingTermFunction(value);
+    });
 
     typeOfTerm.addEventListener('change', () => {
         
-    })
+    });
 
-    leasingRedeemPriceInput.addEventListener('change', () => {
-        
-    })
-    leasingRedeemPriceRange.addEventListener('change', () => {
-        
-    })
+    leasingRedeemPriceInput.addEventListener('change', (value) => {
+        leasingRedeemPriceFunction(value);
+    });
+    leasingRedeemPriceRange.addEventListener('change', (value) => {
+        leasingRedeemPriceFunction(value);
+    });
 
-    leasingInterestRateInput.addEventListener('change', () => {
-        
-    })
-    leasingInterestRateRange.addEventListener('change', () => {
-        
-    })
+    leasingInterestRateInput.addEventListener('change', (value) => {
+        leasingInterestRateFunction(value);
+    });
+    leasingInterestRateRange.addEventListener('change', (value) => {
+        leasingInterestRateFunction(value);
+    });
 
     radiosOfTypePayments.addEventListener('change', () => {
         
-    })
+    });
 
     displayNextPaymentResult.addEventListener('change', () => {
     
-    })
+    });
 
     displayLastPaymentResult.addEventListener('change', () => {
     
-    })
+    });
 
     displayFixedPaymentResult.addEventListener('change', () => {
     
-    })
+    });
+
+let leasingNetPriceFunction = (param) => {
+        leasingNetPriceInput.value = param.target.value;
+        leasingNetPriceRange.value = param.target.value;
+        valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
+        console.log(param.target.value, valueFromLeasingNetPrice);
+};
+
+let leasingFirstPaymentFunction = (param) => {
+        leasingFirstPaymentInput.value = param.target.value;
+        leasingFirstPaymentRange.value = param.target.value;
+        valueFromLeasingFirstPayment = parseFloat(param.target.value).toFixed(2);
+        console.log(param.target.value, valueFromLeasingFirstPayment);
+};
+
+let leasingTermFunction = (param) => {
+        leasingTermInput.value = param.target.value;
+        leasingTermRange.value = param.target.value;
+        valueFromLeasingTerm = parseFloat(param.target.value).toFixed(2);
+        console.log(param.target.value, valueFromLeasingTerm);
+};
+
+let leasingRedeemPriceFunction = (param) => {
+        leasingRedeemPriceInput.value = param.target.value;
+        leasingRedeemPriceRange.value = param.target.value;
+        valueFromLeasingRedeemPrice = parseFloat(param.target.value).toFixed(2);
+        console.log(param.target.value, valueFromLeasingRedeemPrice);
+};
+
+let leasingInterestRateFunction = (param) => {
+        leasingInterestRateInput.value = param.target.value;
+        leasingInterestRateRange.value = param.target.value;
+        valueFromLeasingInterestRate = parseFloat(param.target.value).toFixed(2);
+        console.log(param.target.value, valueFromLeasingInterestRate);
+}
 
 console.log(((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput) - 1));

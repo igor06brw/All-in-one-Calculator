@@ -11,7 +11,7 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 
     leasingTermInput = document.getElementById('leasingTermInput'),
     leasingTermRange = document.getElementById('leasingTermRange'),
-    typeOfTerm = document.getElementById('typeOfTerm'),
+    // typeOfTerm = document.getElementById('typeOfTerm'),
     forYearsOfTerm = document.getElementById('forYearsOfTerm'),
     forMonthsOfTerm = document.getElementById('forMonthsOfTerm'),
 
@@ -56,10 +56,6 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
         leasingTermFunction(value);
     });
 
-    typeOfTerm.addEventListener('change', () => {
-        
-    });
-
     leasingRedeemPriceInput.addEventListener('change', (value) => {
         leasingRedeemPriceFunction(value);
     });
@@ -94,6 +90,7 @@ let leasingNetPriceFunction = (param) => {
         leasingNetPriceInput.value = param.target.value;
         leasingNetPriceRange.value = param.target.value;
         valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
+        changeRedeemPaymentInputFunction();
         changeFirstPaymentInputFunction();
         calculate();
 };
@@ -139,6 +136,19 @@ let changeFirstPaymentInputFunction = () => {
         }
         leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
         leasingFirstPaymentRange.max = valueFromLeasingNetPrice
+    } else {
+        console.log('XD');
+    }
+}
+
+let changeRedeemPaymentInputFunction = () => {
+    if(valueFromLeasingNetPrice !== undefined) {
+        if(valueFromLeasingRedeemPrice > valueFromLeasingNetPrice) {
+            leasingRedeemPriceInput.value = 0; 
+            leasingRedeemPriceRange.value = 0;
+        } 
+        leasingRedeemPriceInput.max = valueFromLeasingNetPrice,
+        leasingRedeemPriceRange.max = valueFromLeasingNetPrice
     } else {
         console.log('XD');
     }

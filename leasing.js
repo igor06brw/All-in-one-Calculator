@@ -121,8 +121,23 @@ let leasingRedeemPriceFunction = (param) => {
 let leasingInterestRateFunction = (param) => {
         leasingInterestRateInput.value = param.target.value;
         leasingInterestRateRange.value = param.target.value;
-        valueFromLeasingInterestRate = parseFloat(param.target.value).toFixed(2);
-        console.log(param.target.value, valueFromLeasingInterestRate);
-}
+        valueFromLeasingInterestRate = parseFloat(param.target.value).toFixed(1);
+        // console.log(param.target.value, valueFromLeasingInterestRate);
+};
 
-console.log(((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput) - 1));
+// example of values
+valueFromLeasingNetPrice = 100000;
+valueFromLeasingFirstPayment = 10000;
+valueFromLeasingRedeemPrice = 20000;
+valueFromLeasingInterestRate = 3;
+valueFromLeasingTerm = 35;
+
+let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 1200)) ** valueFromLeasingTerm)));
+let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate / 1200)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate / 1200);
+
+
+console.log(first, second);
+console.log(first / second);
+
+console.log(((valueFromLeasingInterestRate / 1200) ** valueFromLeasingTerm));
+// console.log((((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm))) / ((1 - valueFromLeasingFirstPayment) - (1 / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm)) / (valueFromLeasingInterestRate / 12))));

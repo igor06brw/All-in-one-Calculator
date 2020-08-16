@@ -94,7 +94,7 @@ let leasingNetPriceFunction = (param) => {
         leasingNetPriceInput.value = param.target.value;
         leasingNetPriceRange.value = param.target.value;
         valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
-        console.log(param.target.value, valueFromLeasingNetPrice);
+        changeFirstPaymentInputFunction();
         calculate();
 };
 
@@ -130,6 +130,15 @@ let leasingInterestRateFunction = (param) => {
 
         calculate();
 };
+
+let changeFirstPaymentInputFunction = () => {
+    if(valueFromLeasingNetPrice !== undefined) {
+        leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
+        leasingFirstPaymentRange.max = valueFromLeasingNetPrice
+    } else {
+        console.log('XD');
+    }
+}
 
 
 let calculate = () => {

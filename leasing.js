@@ -95,6 +95,7 @@ let leasingNetPriceFunction = (param) => {
         leasingNetPriceRange.value = param.target.value;
         valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
         console.log(param.target.value, valueFromLeasingNetPrice);
+        calculate();
 };
 
 let leasingFirstPaymentFunction = (param) => {
@@ -102,6 +103,7 @@ let leasingFirstPaymentFunction = (param) => {
         leasingFirstPaymentRange.value = param.target.value;
         valueFromLeasingFirstPayment = parseFloat(param.target.value).toFixed(2);
         console.log(param.target.value, valueFromLeasingFirstPayment);
+        calculate();
 };
 
 let leasingTermFunction = (param) => {
@@ -109,6 +111,7 @@ let leasingTermFunction = (param) => {
         leasingTermRange.value = param.target.value;
         valueFromLeasingTerm = parseFloat(param.target.value).toFixed(2);
         console.log(param.target.value, valueFromLeasingTerm);
+        calculate();
 };
 
 let leasingRedeemPriceFunction = (param) => {
@@ -116,28 +119,23 @@ let leasingRedeemPriceFunction = (param) => {
         leasingRedeemPriceRange.value = param.target.value;
         valueFromLeasingRedeemPrice = parseFloat(param.target.value).toFixed(2);
         console.log(param.target.value, valueFromLeasingRedeemPrice);
+        calculate();
 };
 
 let leasingInterestRateFunction = (param) => {
         leasingInterestRateInput.value = param.target.value;
         leasingInterestRateRange.value = param.target.value;
-        valueFromLeasingInterestRate = parseFloat(param.target.value).toFixed(1);
-        // console.log(param.target.value, valueFromLeasingInterestRate);
+        valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(1) / 12) / 100;
+        console.log(param.target.value, valueFromLeasingInterestRate);
+
+        calculate();
 };
 
-// example of values
-valueFromLeasingNetPrice = 100000;
-valueFromLeasingFirstPayment = 10000;
-valueFromLeasingRedeemPrice = 20000;
-valueFromLeasingInterestRate = 3;
-valueFromLeasingTerm = 35;
 
-let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 1200)) ** valueFromLeasingTerm)));
-let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate / 1200)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate / 1200);
+let calculate = () => {
+    let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm)));
+    let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate);
 
-
-console.log(first, second);
-console.log(first / second);
-
-console.log(((valueFromLeasingInterestRate / 1200) ** valueFromLeasingTerm));
+    console.log(first / second);
+}
 // console.log((((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm))) / ((1 - valueFromLeasingFirstPayment) - (1 / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm)) / (valueFromLeasingInterestRate / 12))));

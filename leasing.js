@@ -125,7 +125,7 @@ let leasingRedeemPriceFunction = (param) => {
 let leasingInterestRateFunction = (param) => {
         leasingInterestRateInput.value = param.target.value;
         leasingInterestRateRange.value = param.target.value;
-        valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(1) / 12) / 100;
+        valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(4) / 12) / 100;
         console.log(param.target.value, valueFromLeasingInterestRate);
 
         calculate();
@@ -136,6 +136,9 @@ let calculate = () => {
     let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm)));
     let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate);
 
-    console.log(first / second);
+
+
+    (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? console.log(first / second) : console.log('undefined in condition!');
+
 }
 // console.log((((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm))) / ((1 - valueFromLeasingFirstPayment) - (1 / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm)) / (valueFromLeasingInterestRate / 12))));

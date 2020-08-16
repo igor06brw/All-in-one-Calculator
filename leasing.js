@@ -133,6 +133,10 @@ let leasingInterestRateFunction = (param) => {
 
 let changeFirstPaymentInputFunction = () => {
     if(valueFromLeasingNetPrice !== undefined) {
+        if(valueFromLeasingFirstPayment > valueFromLeasingNetPrice) {
+            leasingFirstPaymentInput.value = 0; 
+            leasingFirstPaymentRange.value = 0;
+        }
         leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
         leasingFirstPaymentRange.max = valueFromLeasingNetPrice
     } else {

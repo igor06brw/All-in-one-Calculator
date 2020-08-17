@@ -30,7 +30,7 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 
     valueFromLeasingNetPrice,
     valueFromLeasingFirstPayment,
-    valueFromLeasingTerm,
+    valueFromLeasingTerm = "3209439.00",
     valueFromLeasingRedeemPrice,
     valueFromLeasingInterestRate;
 
@@ -89,7 +89,7 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 let leasingNetPriceFunction = (param) => {
         leasingNetPriceInput.value = param.target.value;
         leasingNetPriceRange.value = param.target.value;
-        valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingNetPrice = parseFloat(param.target.value);
         changeRedeemPaymentInputFunction();
         changeFirstPaymentInputFunction();
         calculate();
@@ -98,7 +98,7 @@ let leasingNetPriceFunction = (param) => {
 let leasingFirstPaymentFunction = (param) => {
         leasingFirstPaymentInput.value = param.target.value;
         leasingFirstPaymentRange.value = param.target.value;
-        valueFromLeasingFirstPayment = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingFirstPayment = parseFloat(param.target.value);
         console.log(param.target.value, valueFromLeasingFirstPayment);
         calculate();
 };
@@ -114,7 +114,7 @@ let leasingTermFunction = (param) => {
 let leasingRedeemPriceFunction = (param) => {
         leasingRedeemPriceInput.value = param.target.value;
         leasingRedeemPriceRange.value = param.target.value;
-        valueFromLeasingRedeemPrice = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingRedeemPrice = parseFloat(param.target.value);
         console.log(param.target.value, valueFromLeasingRedeemPrice);
         calculate();
 };
@@ -130,10 +130,11 @@ let leasingInterestRateFunction = (param) => {
 
 let changeFirstPaymentInputFunction = () => {
     if(valueFromLeasingNetPrice !== undefined) {
-        if(valueFromLeasingFirstPayment > valueFromLeasingNetPrice) {
+        if(valueFromLeasingNetPrice < valueFromLeasingFirstPayment) {
             leasingFirstPaymentInput.value = 0; 
             leasingFirstPaymentRange.value = 0;
         }
+
         leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
         leasingFirstPaymentRange.max = valueFromLeasingNetPrice
     } else {
@@ -164,4 +165,3 @@ let calculate = () => {
     (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? console.log(first / second) : console.log('undefined in condition!');
 
 }
-// console.log((((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm))) / ((1 - valueFromLeasingFirstPayment) - (1 / ((1 + (valueFromLeasingInterestRate / 12)) ** valueFromLeasingTerm)) / (valueFromLeasingInterestRate / 12))));

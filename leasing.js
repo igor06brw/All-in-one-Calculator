@@ -11,7 +11,7 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 
     leasingTermInput = document.getElementById('leasingTermInput'),
     leasingTermRange = document.getElementById('leasingTermRange'),
-    typeOfTerm = document.getElementById('typeOfTerm'),
+    // typeOfTerm = document.getElementById('typeOfTerm'),
     forYearsOfTerm = document.getElementById('forYearsOfTerm'),
     forMonthsOfTerm = document.getElementById('forMonthsOfTerm'),
 
@@ -30,7 +30,7 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 
     valueFromLeasingNetPrice,
     valueFromLeasingFirstPayment,
-    valueFromLeasingTerm,
+    valueFromLeasingTerm = "3209439.00",
     valueFromLeasingRedeemPrice,
     valueFromLeasingInterestRate;
 
@@ -54,10 +54,6 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
     });
     leasingTermRange.addEventListener('change', (value) => {
         leasingTermFunction(value);
-    });
-
-    typeOfTerm.addEventListener('change', () => {
-        
     });
 
     leasingRedeemPriceInput.addEventListener('change', (value) => {
@@ -93,15 +89,18 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
 let leasingNetPriceFunction = (param) => {
         leasingNetPriceInput.value = param.target.value;
         leasingNetPriceRange.value = param.target.value;
-        valueFromLeasingNetPrice = parseFloat(param.target.value).toFixed(2);
-        console.log(param.target.value, valueFromLeasingNetPrice);
+        valueFromLeasingNetPrice = parseFloat(param.target.value);
+        changeRedeemPaymentInputFunction();
+        changeFirstPaymentInputFunction();
+        calculate();
 };
 
 let leasingFirstPaymentFunction = (param) => {
         leasingFirstPaymentInput.value = param.target.value;
         leasingFirstPaymentRange.value = param.target.value;
-        valueFromLeasingFirstPayment = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingFirstPayment = parseFloat(param.target.value);
         console.log(param.target.value, valueFromLeasingFirstPayment);
+        calculate();
 };
 
 let leasingTermFunction = (param) => {
@@ -109,20 +108,60 @@ let leasingTermFunction = (param) => {
         leasingTermRange.value = param.target.value;
         valueFromLeasingTerm = parseFloat(param.target.value).toFixed(2);
         console.log(param.target.value, valueFromLeasingTerm);
+        calculate();
 };
 
 let leasingRedeemPriceFunction = (param) => {
         leasingRedeemPriceInput.value = param.target.value;
         leasingRedeemPriceRange.value = param.target.value;
-        valueFromLeasingRedeemPrice = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingRedeemPrice = parseFloat(param.target.value);
         console.log(param.target.value, valueFromLeasingRedeemPrice);
+        calculate();
 };
 
 let leasingInterestRateFunction = (param) => {
         leasingInterestRateInput.value = param.target.value;
         leasingInterestRateRange.value = param.target.value;
-        valueFromLeasingInterestRate = parseFloat(param.target.value).toFixed(2);
+        valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(4) / 12) / 100;
         console.log(param.target.value, valueFromLeasingInterestRate);
+
+        calculate();
+};
+
+let changeFirstPaymentInputFunction = () => {
+    if(valueFromLeasingNetPrice !== undefined) {
+        if(valueFromLeasingNetPrice < valueFromLeasingFirstPayment) {
+            leasingFirstPaymentInput.value = 0; 
+            leasingFirstPaymentRange.value = 0;
+        }
+
+        leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
+        leasingFirstPaymentRange.max = valueFromLeasingNetPrice
+    } else {
+        console.log('XD');
+    }
 }
 
-console.log(((((leasingNetPriceInput - leasingFirstPaymentInput) * leasingInterestRateInput) * ((1 + leasingInterestRateInput) ** leasingTermInput) - (leasingRedeemPriceInput * leasingInterestRateInput)) / ((1 + leasingInterestRateInput) ** leasingTermInput) - 1));
+let changeRedeemPaymentInputFunction = () => {
+    if(valueFromLeasingNetPrice !== undefined) {
+        if(valueFromLeasingRedeemPrice > valueFromLeasingNetPrice) {
+            leasingRedeemPriceInput.value = 0; 
+            leasingRedeemPriceRange.value = 0;
+        } 
+        leasingRedeemPriceInput.max = valueFromLeasingNetPrice,
+        leasingRedeemPriceRange.max = valueFromLeasingNetPrice
+    } else {
+        console.log('XD');
+    }
+}
+
+
+let calculate = () => {
+    let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm)));
+    let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate);
+
+
+
+    (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? console.log(first / second) : console.log('undefined in condition!');
+
+}

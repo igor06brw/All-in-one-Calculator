@@ -70,17 +70,14 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
         leasingInterestRateFunction(value);
     });
 
-    radiosOfTypePayments.addEventListener('change', () => {
-        
-    });
+    // lack of decreasing leasing pattern!!!!
 
-    displayNextPaymentResult.addEventListener('change', () => {
-    
-    });
-
-    displayLastPaymentResult.addEventListener('change', () => {
-    
-    });
+    // radiosOfTypePayments.addEventListener('change', () => {    
+    // });
+    // displayNextPaymentResult.addEventListener('change', () => { 
+    // });
+    // displayLastPaymentResult.addEventListener('change', () => {
+    // });
 
     displayFixedPaymentResult.addEventListener('change', () => {
     
@@ -155,13 +152,15 @@ let changeRedeemPaymentInputFunction = () => {
     }
 }
 
+let displayFixedResult = (value) => {
+    displayFixedPaymentResult.value = value;
+}
+
+
 
 let calculate = () => {
     let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm)));
     let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate);
-
-
-
-    (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? console.log(first / second) : console.log('undefined in condition!');
-
+    let result = (first / second);
+    (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? displayFixedResult(result) : console.log('undefined in condition!');
 }

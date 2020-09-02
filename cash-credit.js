@@ -8,7 +8,7 @@ let cashCreditLoanInput = document.getElementById('cashCreditLoanInput'),
 
     valueFromCashCreditLoan,
     valueFromCashCreditTerm,
-    valueFromCashCreditInterestRat;
+    valueFromCashCreditInterestRate;
 
     cashCreditLoanInput.addEventListener('change', (value) => {
         cashCreditLoanFunction(value);
@@ -36,18 +36,27 @@ let cashCreditLoanFunction = (param) => {
     cashCreditLoanRange.value = param.target.value;
     valueFromCashCreditLoan = parseFloat(param.target.value);
     console.log(valueFromCashCreditLoan)
+    calculate();
 }
 let cashCreditTermFunction = (param) => {
     cashCreditTermInput.value = param.target.value;
     cashCreditTermRange.value = param.target.value;
     valueFromCashCreditTerm = parseFloat(param.target.value);
     console.log(valueFromCashCreditTerm)
+    calculate();
 }
 let cashCreditInterestRateFunction = (param) => {
     cashCreditInterestRateInput.value = param.target.value;
     cashCreditInterestRateRange.value = param.target.value;
     valueFromCashCreditInterestRate = parseFloat(param.target.value);
-    console.log(valueFromCashCreditInterestRat)
+    console.log(valueFromCashCreditInterestRate)
+    calculate();
+}
+
+
+let calculate = () => {
+    let result = (valueFromCashCreditLoan * (1 + ((valueFromCashCreditInterestRate / 12) ** valueFromCashCreditTerm )) * (1 - (valueFromCashCreditInterestRate / 12)) / (1 - ((valueFromCashCreditInterestRate ** valueFromCashCreditTerm) / 12)));
+    console.log(result);
 }
 
 

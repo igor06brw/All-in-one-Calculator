@@ -65,7 +65,7 @@ let calculate = () => {
         second = (1 - q),
         third = (1 - Math.pow(q, valueFromCashCreditTerm)),
         result =  first * (second / third);
-        displayFixedResult(result.toFixed(2));
+        (valueFromCashCreditLoan && valueFromCashCreditInterestRate && valueFromCashCreditTerm !== undefined) ? displayFixedResult(result.toFixed(2)) : console.log('undefined in condition!');
 }
 
 

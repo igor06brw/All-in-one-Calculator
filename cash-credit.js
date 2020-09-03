@@ -53,6 +53,10 @@ let cashCreditInterestRateFunction = (param) => {
     calculate();
 }
 
+let displayFixedResult = (value) => {
+    displayFixedPaymentResult.value = value;
+}
+
 
 let calculate = () => {
 
@@ -61,8 +65,7 @@ let calculate = () => {
         second = (1 - q),
         third = (1 - Math.pow(q, valueFromCashCreditTerm)),
         result =  first * (second / third);
-
-    console.log(result);
+        displayFixedResult(result.toFixed(2));
 }
 
 

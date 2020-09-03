@@ -89,44 +89,59 @@ let leasingNetPriceFunction = (param) => {
     } else {
         leasingNetPriceInput.value = 50000;
     }
-        leasingNetPriceRange.value = param.target.value;
-        valueFromLeasingNetPrice = parseFloat(param.target.value);
-        changeRedeemPaymentInputFunction();
-        changeFirstPaymentInputFunction();
-        calculate();
+    leasingNetPriceRange.value = param.target.value;
+    valueFromLeasingNetPrice = parseFloat(param.target.value);
+    changeRedeemPaymentInputFunction();
+    changeFirstPaymentInputFunction();
+    calculate();
 };
 
 let leasingFirstPaymentFunction = (param) => {
+    if( leasingFirstPaymentInput.value >= 0) {
         leasingFirstPaymentInput.value = param.target.value;
-        leasingFirstPaymentRange.value = param.target.value;
-        valueFromLeasingFirstPayment = parseFloat(param.target.value);
-        console.log(param.target.value, valueFromLeasingFirstPayment);
-        calculate();
+    } else {
+        leasingFirstPaymentInput.value = 0;
+    }
+    leasingFirstPaymentRange.value = param.target.value;
+    valueFromLeasingFirstPayment = parseFloat(param.target.value);
+    console.log(param.target.value, valueFromLeasingFirstPayment);
+    calculate();
 };
 
 let leasingTermFunction = (param) => {
+    if(leasingTermInput.value > 0) {
         leasingTermInput.value = param.target.value;
-        leasingTermRange.value = param.target.value;
-        valueFromLeasingTerm = parseFloat(param.target.value).toFixed(2);
-        console.log(param.target.value, valueFromLeasingTerm);
-        calculate();
+    } else {
+        leasingTermInput.value = 35;
+    }
+    leasingTermRange.value = param.target.value;
+    valueFromLeasingTerm = parseFloat(param.target.value).toFixed(2);
+    console.log(param.target.value, valueFromLeasingTerm);
+    calculate();
 };
 
 let leasingRedeemPriceFunction = (param) => {
+    if(leasingRedeemPriceInput.value >= 0) {
         leasingRedeemPriceInput.value = param.target.value;
-        leasingRedeemPriceRange.value = param.target.value;
-        valueFromLeasingRedeemPrice = parseFloat(param.target.value);
-        console.log(param.target.value, valueFromLeasingRedeemPrice);
-        calculate();
+    } else {
+        leasingRedeemPriceInput.value = 0;
+    }
+    leasingRedeemPriceRange.value = param.target.value;
+    valueFromLeasingRedeemPrice = parseFloat(param.target.value);
+    console.log(param.target.value, valueFromLeasingRedeemPrice);
+    calculate();
 };
 
 let leasingInterestRateFunction = (param) => {
+    if(leasingInterestRateInput.value > 0) {
         leasingInterestRateInput.value = param.target.value;
-        leasingInterestRateRange.value = param.target.value;
-        valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(4) / 12) / 100;
-        console.log(param.target.value, valueFromLeasingInterestRate);
-
-        calculate();
+    } else {
+        leasingInterestRateInput.value = 5;
+    }
+    leasingInterestRateRange.value = param.target.value;
+    valueFromLeasingInterestRate = (parseFloat(param.target.value).toFixed(4) / 12) / 100;
+    console.log(param.target.value, valueFromLeasingInterestRate);
+    calculate();
 };
 
 let changeFirstPaymentInputFunction = () => {

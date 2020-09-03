@@ -84,7 +84,11 @@ let dropdownMenuButton = document.getElementById('dropdownMenuButton'),
     });
 
 let leasingNetPriceFunction = (param) => {
+    if( leasingNetPriceInput.value > 0) {
         leasingNetPriceInput.value = param.target.value;
+    } else {
+        leasingNetPriceInput.value = 50000;
+    }
         leasingNetPriceRange.value = param.target.value;
         valueFromLeasingNetPrice = parseFloat(param.target.value);
         changeRedeemPaymentInputFunction();

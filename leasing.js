@@ -132,8 +132,8 @@ let changeFirstPaymentInputFunction = () => {
             leasingFirstPaymentRange.value = 0;
         }
 
-        leasingFirstPaymentInput.max = valueFromLeasingNetPrice,
-        leasingFirstPaymentRange.max = valueFromLeasingNetPrice
+        leasingFirstPaymentInput.max = valueFromLeasingNetPrice * 0.3;
+        leasingFirstPaymentRange.max = valueFromLeasingNetPrice * 0.3;
     } else {
         console.log('XD');
     }
@@ -141,12 +141,12 @@ let changeFirstPaymentInputFunction = () => {
 
 let changeRedeemPaymentInputFunction = () => {
     if(valueFromLeasingNetPrice !== undefined) {
-        if(valueFromLeasingRedeemPrice > valueFromLeasingNetPrice) {
+        if(valueFromLeasingNetPrice < valueFromLeasingRedeemPrice) {
             leasingRedeemPriceInput.value = 0; 
             leasingRedeemPriceRange.value = 0;
         } 
-        leasingRedeemPriceInput.max = valueFromLeasingNetPrice,
-        leasingRedeemPriceRange.max = valueFromLeasingNetPrice
+        leasingRedeemPriceInput.max = valueFromLeasingNetPrice * 0.3;
+        leasingRedeemPriceRange.max = valueFromLeasingNetPrice * 0.3;
     } else {
         console.log('XD');
     }
@@ -162,5 +162,11 @@ let calculate = () => {
     let first = ((valueFromLeasingNetPrice - valueFromLeasingFirstPayment) - (valueFromLeasingRedeemPrice / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm)));
     let second = (1 - (1 / ((1 + (valueFromLeasingInterestRate)) ** valueFromLeasingTerm))) / (valueFromLeasingInterestRate);
     let result = (first / second);
-    (valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) ? displayFixedResult(result) : console.log('undefined in condition!');
+    if(valueFromLeasingNetPrice && valueFromLeasingFirstPayment && valueFromLeasingTerm && valueFromLeasingRedeemPrice && valueFromLeasingInterestRate !== undefined) {
+        if(result > 0) {
+            displayFixedResult(result.toFixed(2))
+        } else {
+            displayFixedResult("Incorrect value!")
+        }
+    }
 }

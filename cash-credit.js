@@ -56,18 +56,11 @@ let cashCreditInterestRateFunction = (param) => {
 
 let calculate = () => {
 
-    let q = (1 + ((valueFromCashCreditInterestRate / 100) / 12))
-
-
-    let first = valueFromCashCreditLoan * Math.pow(q, valueFromCashCreditTerm),
+    let q = (1 + ((valueFromCashCreditInterestRate / 100) / 12)),
+        first = valueFromCashCreditLoan * Math.pow(q, valueFromCashCreditTerm),
         second = (1 - q),
         third = (1 - Math.pow(q, valueFromCashCreditTerm)),
         result =  first * (second / third);
-
-    let debug1 = valueFromCashCreditLoan * Math.pow(valueFromCashCreditInterestRate, valueFromCashCreditTerm),
-        debug2 = valueFromCashCreditInterestRate,
-        debug3 = valueFromCashCreditTerm
-        debug4 = Math.pow(debug2, debug3);
 
     console.log(result);
 }
